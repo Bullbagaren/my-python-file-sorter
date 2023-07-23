@@ -1,8 +1,20 @@
 import os 
+import sys
+import re
 
 
-current_dir = os.getcwd()
+def main():
+    folders_to_be_sorted = sys.argv
+    del folders_to_be_sorted[0] 
+    contents = os.listdir(folders_to_be_sorted[0])
 
-files = os.system("ls")
+    relevant_files = [i for i in contents if i[0] != "."]
+    print(relevant_files)
 
-print(os.system("ls"))
+
+
+
+
+if __name__ == "__main__":
+    main()
+
