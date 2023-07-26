@@ -7,27 +7,34 @@ def main():
     folders_to_be_sorted = sys.argv
     del folders_to_be_sorted[0] 
     contents = os.listdir(folders_to_be_sorted[0])
-    not_hidden_files = [i for i in contents if i[0] != "." if os.path.isdir(folder + "/" + i) == False]
-    
+    not_hidden_files = [i for i in contents if i[0] != "." if os.path.isdir(folders_to_be_sorted[0] + "/" + i) == False]
+    print(not_hidden_files)
     for file in not_hidden_files: 
-        check_file_extention = file.splt(".")
-        match check_file_extention[1]:
-            case "jpg" or "png": 
-                os.system("mv " + folders_to_be_sorted + "/" + file + " " + "~/" + "Pictures")
+        check_file_extention = file.split(".")
+        print(check_file_extention)
+        if len(check_file_extention) > 1:
 
-            case "txt" or "doc" or "docx" or "pdf":
+            match check_file_extention[1]:
+                case "jpg" | "png": 
+                    os.system("mv " + folders_to_be_sorted[0] + "/" + file + " " + "~/" + "Bilder")
 
-                os.system("mv " + folders_to_be_sorted + "/" + file + " " + "~/" + "Document")
+                case "txt" | "doc" | "docx" | "pdf":
 
-            case "mp3" or "flac" or "wav" or "wma":
+                    os.system("mv " + folders_to_be_sorted[0]+ "/" + file + " " + "~/" + "Dokument")
 
-                os.system("mv " + folders_to_be_sorted + "/" + file + " " + "~/" + "Music")
+                case "mp3" | "flac" | "wav" | "wma":
 
-            case "mp4" or "webm" or "gif" or "mkv" or "avi":
+                    os.system("mv " + folders_to_be_sorted[0] + "/" + file + " " + "~/" + "Musik")
 
-                os.system("mv " + folders_to_be_sorted + "/" + file + " " + "~/" + "Video")
+                case "mp4" | "webm" | "gif" | "mkv" | "avi":
 
-            
+                    os.system("mv " + folders_to_be_sorted[0] + "/" + file + " " + "~/" + "Video")
+
+                case _:
+                    print(f"{file} has an extention that could not be sorted")
+
+        else:
+            print(f"{file} didn't seem to have a file extention and thusly could not be sorted")
 
 
     
