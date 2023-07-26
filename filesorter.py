@@ -10,31 +10,31 @@ def main():
     not_hidden_files = [i for i in contents if i[0] != "." if os.path.isdir(folders_to_be_sorted[0] + "/" + i) == False]
     print(not_hidden_files)
     for file in not_hidden_files: 
-        check_file_extention = file.split(".")
-        print(check_file_extention)
-        if len(check_file_extention) > 1:
+        check_file_extension = file.split(".")
+        print(check_file_extension)
+        if len(check_file_extension) > 1:
 
-            match check_file_extention[1]:
+            match check_file_extension[1]:
                 case "jpg" | "png": 
-                    os.system("mv " + folders_to_be_sorted[0] + "/" + file + " " + "~/" + "Bilder")
+                    os.system("mv " + folders_to_be_sorted[0] + "/" + file + " " + "~/" + "Pictures")
 
                 case "txt" | "doc" | "docx" | "pdf":
 
-                    os.system("mv " + folders_to_be_sorted[0]+ "/" + file + " " + "~/" + "Dokument")
+                    os.system("mv " + folders_to_be_sorted[0]+ "/" + file + " " + "~/" + "Documents")
 
                 case "mp3" | "flac" | "wav" | "wma":
 
-                    os.system("mv " + folders_to_be_sorted[0] + "/" + file + " " + "~/" + "Musik")
+                    os.system("mv " + folders_to_be_sorted[0] + "/" + file + " " + "~/" + "Music")
 
                 case "mp4" | "webm" | "gif" | "mkv" | "avi":
 
-                    os.system("mv " + folders_to_be_sorted[0] + "/" + file + " " + "~/" + "Video")
+                    os.system("mv " + folders_to_be_sorted[0] + "/" + file + " " + "~/" + "Videos")
 
                 case _:
-                    print(f"{file} has an extention that could not be sorted")
+                    print(f"{file} has an extension that could not be sorted")
 
         else:
-            print(f"{file} didn't seem to have a file extention and thusly could not be sorted")
+            print(f"{file} didn't seem to have a file extension and thusly could not be sorted")
 
 
     
